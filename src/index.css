@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Lora:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Blink UI Theme CSS
+   REQUIRED for @blinkdotnew/ui components to render correctly.
+   BlinkUIProvider adds .theme-{name} + .dark/.light to <html>,
+   activating the matching CSS variable set below.
+   ───────────────────────────────────────────────────────────────────────────── */
+@import '@blinkdotnew/ui/styles';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  /* Full viewport chain so AppShell / Sidebar h-full + flex-1 SidebarContent work */
+  html {
+    height: 100%;
+  }
+
+  #root {
+    min-height: 100%;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  body {
+    min-height: 100%;
+    min-height: 100dvh;
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    letter-spacing: var(--tracking-normal);
+  }
+}
+
+/* ── App palette (unlayered, after utilities) ─────────────────────────────────
+   Overrides @blinkdotnew/ui theme colors. @layer base loses specificity to UI themes.
+   Dark mode uses :root.dark + .theme-*.dark to match BlinkUIProvider.
+   ⚠️ AGENT MUST REPLACE placeholder values with a custom palette.
+   ──────────────────────────────────────────────────────────────────────────── */
+:root {
+  /* FinanceCalc Ultimate — Premium Fintech Dark */
+  --background: 222 18% 7%;
+  --foreground: 220 14% 94%;
+  --card: 222 16% 10%;
+  --card-foreground: 220 14% 94%;
+  --popover: 222 16% 10%;
+  --popover-foreground: 220 14% 94%;
+  --primary: 160 84% 43%;
+  --primary-foreground: 222 18% 7%;
+  --secondary: 220 10% 18%;
+  --secondary-foreground: 220 14% 94%;
+  --muted: 222 14% 14%;
+  --muted-foreground: 220 8% 60%;
+  --accent: 43 96% 58%;
+  --accent-foreground: 222 18% 7%;
+  --destructive: 0 72% 55%;
+  --destructive-foreground: 220 14% 94%;
+  --border: 222 10% 22%;
+  --input: 222 10% 22%;
+  --ring: 160 84% 43%;
+
+  /* Charts */
+  --chart-1: 160 84% 43%;
+  --chart-2: 43 96% 58%;
+  --chart-3: 200 84% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 0 72% 55%;
+
+  /* Sidebar */
+  --sidebar: 222 16% 10%;
+  --sidebar-foreground: 220 14% 94%;
+  --sidebar-primary: 160 84% 43%;
+  --sidebar-primary-foreground: 222 18% 7%;
+  --sidebar-accent: 220 10% 16%;
+  --sidebar-accent-foreground: 220 14% 94%;
+  --sidebar-border: 222 10% 18%;
+  --sidebar-ring: 160 84% 43%;
+
+  /* Fonts */
+  --font-sans: DM Sans, sans-serif;
+  --font-serif: Lora, serif;
+  --font-mono: IBM Plex Mono, monospace;
+
+  /* Shadows */
+  --shadow-2xs: 0px 4px 8px -1px hsl(160 84% 43% / 0.04);
+  --shadow-xs: 0px 4px 8px -1px hsl(160 84% 43% / 0.04);
+  --shadow-sm: 0px 4px 8px -1px hsl(160 84% 43% / 0.08), 0px 1px 2px -2px hsl(160 84% 43% / 0.08);
+  --shadow: 0px 4px 8px -1px hsl(160 84% 43% / 0.08), 0px 1px 2px -2px hsl(160 84% 43% / 0.08);
+  --shadow-md: 0px 4px 8px -1px hsl(160 84% 43% / 0.08), 0px 2px 4px -2px hsl(160 84% 43% / 0.08);
+  --shadow-lg: 0px 4px 8px -1px hsl(160 84% 43% / 0.08), 0px 4px 6px -2px hsl(160 84% 43% / 0.08);
+  --shadow-xl: 0px 4px 8px -1px hsl(160 84% 43% / 0.08), 0px 8px 10px -2px hsl(160 84% 43% / 0.08);
+  --shadow-2xl: 0px 4px 8px -1px hsl(160 84% 43% / 0.20);
+
+  /* Misc */
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+  --radius: 0.5rem;
+}
+
+:root.dark,
+.theme-linear.dark,
+.theme-glass.dark,
+.theme-midnight.dark,
+.theme-minimal.dark {
+  /* ⚠️ AGENT MUST REPLACE: Dark mode colors - replace with your custom dark palette */
+  --background: 222 18% 7%;
+  --foreground: 220 14% 94%;
+  --card: 222 16% 10%;
+  --card-foreground: 220 14% 94%;
+  --popover: 222 16% 10%;
+  --popover-foreground: 220 14% 94%;
+  /* ⚠️ PLACEHOLDER: Replace with your custom dark mode primary color */
+  --primary: 160 84% 43%;
+  --primary-foreground: 222 18% 7%;
+  --secondary: 220 10% 18%;
+  --secondary-foreground: 220 14% 94%;
+  --muted: 222 14% 14%;
+  --muted-foreground: 220 8% 60%;
+  --accent: 43 96% 58%;
+  --accent-foreground: 222 18% 7%;
+  --destructive: 0 72% 55%;
+  --destructive-foreground: 220 14% 94%;
+  --border: 222 10% 22%;
+  --input: 222 10% 22%;
+  --ring: 160 84% 43%;
+
+  /* ⚠️ PLACEHOLDER: Replace with your custom dark mode chart colors */
+  --chart-1: 160 84% 43%;
+  --chart-2: 43 96% 58%;
+  --chart-3: 200 84% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 0 72% 55%;
+
+  /* ⚠️ PLACEHOLDER: Replace with your custom dark mode sidebar colors */
+  --sidebar: 222 16% 10%;
+  --sidebar-foreground: 220 14% 94%;
+  --sidebar-primary: 160 84% 43%;
+  --sidebar-primary-foreground: 222 18% 7%;
+  --sidebar-accent: 220 10% 16%;
+  --sidebar-accent-foreground: 220 14% 94%;
+  --sidebar-border: 222 10% 18%;
+  --sidebar-ring: 160 84% 43%;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
